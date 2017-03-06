@@ -1,5 +1,5 @@
-van-go.sh
-=========
+van-gosh
+========
 
 A color library for bash (for 256 colors terminals)
 
