@@ -1,7 +1,15 @@
 van-gosh
 ========
-
 A color library for bash (for 256 colors terminals)
+
+
+
+Install
+-------
+`$ git clone git@github.com:taitulism/van-gosh.git`  
+`$ source van-go.sh`
+
+
 
 Color Numbers
 -------------
@@ -23,6 +31,7 @@ bordeaux   = 88
 gray       = 246
 light-gray = 253
 ```
+
 
 
 Colored Screen Loggers
