@@ -63,7 +63,7 @@ myColor=$(createColor yellow red 1)
 echo $myColor
 > "1;38;5;190;48;5;160"
 ```
-**Explaination:**  
+**Explanation:**  
 ; semicolon is the delimiter  
 
 * **1**;38;5;190;48;5;160  
