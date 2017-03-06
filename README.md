@@ -86,6 +86,7 @@ Combine flags by escaping the semicolon with a backslash or just wrap with singl
 
 ###colorize  
 Returns your text colorized with your color
+Args: "<foreground>;<background>;<flag>"
 ```
 myColor=$(createColor yellow red 1)
 
