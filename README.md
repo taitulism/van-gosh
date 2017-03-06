@@ -40,7 +40,8 @@ logAttention 'attention'
 logFail 'fail'
 logSuccess 'success'
 ```
-\*img*
+![loggers examples](https://raw.githubusercontent.com/taitulism/van-gosh/master/logs-example.png)
+
 
 
 Other API
