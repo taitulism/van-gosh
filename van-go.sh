@@ -126,6 +126,3 @@ HIGHLIGHT_COLOR=$(createColor yellow 0 1)
 ERROR_COLOR=$(createColor red 0 1)
 FAIL_COLOR=$(createColor yellow red 1)
 SUCCESS_COLOR=$(createColor white green 1)
-
-export -f logFail
-export colorz
