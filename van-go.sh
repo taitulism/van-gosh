@@ -87,7 +87,7 @@ function logError () {
     echo $(colorize $ERROR_COLOR $*)
 }
 
-logFail () {
+function logFail () {
     echo $(colorize $FAIL_COLOR $*)
 }
 
