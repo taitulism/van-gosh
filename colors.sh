@@ -22,7 +22,8 @@ NO_COLOR="\e[0m" # Reset Color
 
 _red="38;5;${colorNum[red]}"
 _green="38;5;${colorNum[green]}"
-_blue="38;5;${colorNum[steel-blue]}"
+_lblue="38;5;${colorNum[steel-blue]}"
 _yellow="38;5;${colorNum[yellow]}"
 _orange="38;5;${colorNum[orange]}"
 _gray="38;5;${colorNum[gray]}"
+_lgray="38;5;${colorNum[light-gray]}"

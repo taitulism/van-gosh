@@ -7,7 +7,7 @@ function escape () {
 # takes a color name, returns its number
 function getColorNumber () {
     local colorName=$1
-    local bg=${2:-false}
+    local bg=${2:-0}
 
     if [ "$colorName" = 0 ] ;then
         return
@@ -62,7 +62,7 @@ function logTitle () {
 }
 
 function logText () {
-    echo $(paint $TEXT_COLOR $*)
+    echo $(paint $_lgray $*)
 }
 
 function logComment () {
@@ -117,7 +117,6 @@ function paintOrange () {
 
 INFO_COLOR=$(createColor steel-blue 0 1)
 TITLE_COLOR=$(createColor yellow 0 4)
-TEXT_COLOR=$(createColor light-gray)
 OK_COLOR=$(createColor green 0 1)
 WARN_COLOR=$(createColor orange 0 1)
 HIGHLIGHT_COLOR=$(createColor yellow 0 1)
