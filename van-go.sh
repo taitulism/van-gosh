@@ -53,6 +53,9 @@ function paint () {
 }
 
 
+source ./colors.sh
+
+
 function logInfo () {
     echo $(paint $INFO_COLOR $*)
 }
@@ -92,8 +95,6 @@ function logFail () {
 function logSuccess () {
     echo $(paint $SUCCESS_COLOR $*)
 }
-
-source ./colors.sh
 
 function paintRed () {
     echo $(paint $_red $*)
