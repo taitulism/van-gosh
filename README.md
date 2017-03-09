@@ -33,10 +33,44 @@ light-gray = 253
 ```
 
 
+###colorNum  
+There's a `colorNum` assocsiative array (a dictionary) of colors.  
+You can add your own colors by doing: 
+```sh
+colorNum[my-color]=130    # 0-255
+```
+
+
+Global Color Variables
+----------------------
+_red
+_green
+_lblue  ( = steel-blue)
+_yellow
+_orange
+_gray
+_lgray ( = light gray)
+
+`echo $_red` -> '38;5;160'
+
+
+
+Simple Paint Functions
+----------------------
+These functions use the global colors:
+* paintRed
+* paintGreen
+* paintBlue
+* paintYellow
+* paintOrange
+
+`paintRed hello world` will echo a red string.
+
+
 
 Colored Screen Loggers
 ----------------------
-Will print your text in different colors:
+Will print your text in different colors. Mostly **bold** colors and background colors:
 ```sh
 logTitle 'MY TITLE'
 logText 'bla bla text'
@@ -50,6 +84,22 @@ logFail 'fail'
 logSuccess 'success'
 ```
 ![loggers examples](https://raw.githubusercontent.com/taitulism/van-gosh/master/logs-example.png)
+
+
+
+###paint  
+Returns your text colorized with your color
+Args: "<foreground>;<background>;<flag>"
+```
+myColor=$(createColor yellow red 1)
+
+echo $(paint $myColor hello world)
+```
+***NOTE** color flags are passed as the LAST argument*
+
+1 is the **bold** flag.  
+2 is for **dim**  
+4 is for __underline__
 
 
 
@@ -67,9 +117,7 @@ echo $myColor
 ; semicolon is the delimiter  
 
 * **1**;38;5;190;48;5;160  
-1 is the **bold** flag.  
-2 is for **dim**  
-4 is for __underline__  
+1 makes the color **bold**.  
 Combine flags by escaping the semicolon with a backslash or just wrap with single quotes: `1\;4` or `'1;4'`
 
 * 1;38;5;**190**;48;5;**160**    
@@ -84,21 +132,4 @@ Combine flags by escaping the semicolon with a backslash or just wrap with singl
 
 
 
-###paint  
-Returns your text colorized with your color
-Args: "<foreground>;<background>;<flag>"
-```
-myColor=$(createColor yellow red 1)
 
-echo $(paint $myColor hello world)
-```
-***NOTE** color flags are passed as the LAST argument*
-
-
-
-###colorz  
-There's a `colorz` assocsiative array (a dictionary) of colors.  
-You can add your own colors by doing: 
-```sh
-colorz[my-color]=130    # 0-255
-```
