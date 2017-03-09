@@ -52,70 +52,6 @@ function paint () {
     echo ${color}$*${NO_COLOR}
 }
 
-
-source ./colors.sh
-
-
-function logInfo () {
-    echo $(paint $INFO_COLOR $*)
-}
-
-function logTitle () {
-    echo $(paint $TITLE_COLOR $*)
-}
-
-function logText () {
-    echo $(paint $_lgray $*)
-}
-
-function logComment () {
-    echo $(paint $_gray $*)
-}
-
-function logOK () {
-    echo $(paint $OK_COLOR $*)
-}
-
-function logWarn () {
-    echo $(paint $WARN_COLOR $*)
-}
-
-function logAttention () {
-    echo $(paint $HIGHLIGHT_COLOR $*)
-}
-
-function logError () {
-    echo $(paint $ERROR_COLOR $*)
-}
-
-function logFail () {
-    echo $(paint $FAIL_COLOR $*)
-}
-
-function logSuccess () {
-    echo $(paint $SUCCESS_COLOR $*)
-}
-
-function paintRed () {
-    echo $(paint $_red $*)
-}
-
-function paintGreen () {
-    echo $(paint $_green $*)
-}
-
-function paintBlue () {
-    echo $(paint $_blue $*)
-}
-
-function paintYellow () {
-    echo $(paint $_yellow $*)
-}
-
-function paintOrange () {
-    echo $(paint $_orange $*)
-}
-
 INFO_COLOR=$(createColor steel-blue 0 1)
 TITLE_COLOR=$(createColor yellow 0 4)
 OK_COLOR=$(createColor green 0 1)
@@ -124,3 +60,7 @@ HIGHLIGHT_COLOR=$(createColor yellow 0 1)
 ERROR_COLOR=$(createColor red 0 1)
 FAIL_COLOR=$(createColor yellow red 1)
 SUCCESS_COLOR=$(createColor white green 1)
+
+source ./colors.sh
+source ./loggers.sh
+source ./painters.sh
