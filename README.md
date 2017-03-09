@@ -84,13 +84,13 @@ Combine flags by escaping the semicolon with a backslash or just wrap with singl
 
 
 
-###colorize  
+###paint  
 Returns your text colorized with your color
 Args: "<foreground>;<background>;<flag>"
 ```
 myColor=$(createColor yellow red 1)
 
-echo $(colorize $myColor hello world)
+echo $(paint $myColor hello world)
 ```
 ***NOTE** color flags are passed as the LAST argument*
 

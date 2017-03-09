@@ -1,9 +1,7 @@
 #!/bin/bash
 
 function escape () {
-    local escStr=$1
-
-    echo "\e[${escStr}m"
+    echo "\e[$*m"
 }
 
 # takes a color name, returns its number
@@ -15,7 +13,7 @@ function getColorNumber () {
         return
     fi
 
-    local colorNumber=${colorz[$colorName]}
+    local colorNumber=${colorNum[$colorName]}
 
     if [ "$bg" = 1 ] ;then
         echo "48;5;$colorNumber"
@@ -44,10 +42,10 @@ function createColor () {
 }
 
 # params: (createColor, text)
-function colorize () {
+function paint () {
     local color=$(escape $1)
 
-    # shift args to the left (remove first arg)
+    # shift args to the left (=remove first arg)
     shift
 
     # "$*" contains all the remaining args (without the first, the color)
@@ -56,70 +54,70 @@ function colorize () {
 
 
 function logInfo () {
-    echo $(colorize $INFO_COLOR $*)
+    echo $(paint $INFO_COLOR $*)
 }
 
 function logTitle () {
-    echo $(colorize $TITLE_COLOR $*)
+    echo $(paint $TITLE_COLOR $*)
 }
 
 function logText () {
-    echo $(colorize $TEXT_COLOR $*)
+    echo $(paint $TEXT_COLOR $*)
 }
 
 function logComment () {
-    echo $(colorize $COMMENT_COLOR $*)
+    echo $(paint $_gray $*)
 }
 
 function logOK () {
-    echo $(colorize $OK_COLOR $*)
+    echo $(paint $OK_COLOR $*)
 }
 
 function logWarn () {
-    echo $(colorize $WARN_COLOR $*)
+    echo $(paint $WARN_COLOR $*)
 }
 
 function logAttention () {
-    echo $(colorize $HIGHLIGHT_COLOR $*)
+    echo $(paint $HIGHLIGHT_COLOR $*)
 }
 
 function logError () {
-    echo $(colorize $ERROR_COLOR $*)
+    echo $(paint $ERROR_COLOR $*)
 }
 
 function logFail () {
-    echo $(colorize $FAIL_COLOR $*)
+    echo $(paint $FAIL_COLOR $*)
 }
 
 function logSuccess () {
-    echo $(colorize $SUCCESS_COLOR $*)
+    echo $(paint $SUCCESS_COLOR $*)
 }
 
-declare -A colorz
-# color numbers
-colorz[black]=232
-colorz[red]=160
-colorz[green]=28
-colorz[yellow]=190
-colorz[blue]=27
-colorz[steel-blue]=69
-colorz[magenta]=126
-colorz[cyan]=81
-colorz[white]=15
-colorz[pink]=207
-colorz[orange]=202
-colorz[purple]=54
-colorz[bordeaux]=88
-colorz[gray]=246
-colorz[light-gray]=253
+source ./colors.sh
 
-NO_COLOR="\e[0m" # Reset Color
+function paintRed () {
+    echo $(paint $_red $*)
+}
 
-# full colors strings "<bold>;<fg>;<bg>"
-INFO_COLOR=$(createColor steel-blue)
+function paintGreen () {
+    echo $(paint $_green $*)
+}
+
+function paintBlue () {
+    echo $(paint $_blue $*)
+}
+
+function paintYellow () {
+    echo $(paint $_yellow $*)
+}
+
+function paintOrange () {
+    echo $(paint $_orange $*)
+}
+
+INFO_COLOR=$(createColor steel-blue 0 1)
 TITLE_COLOR=$(createColor yellow 0 4)
 TEXT_COLOR=$(createColor light-gray)
-COMMENT_COLOR=$(createColor gray)
 OK_COLOR=$(createColor green 0 1)
 WARN_COLOR=$(createColor orange 0 1)
 HIGHLIGHT_COLOR=$(createColor yellow 0 1)
