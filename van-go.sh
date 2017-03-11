@@ -1,5 +1,11 @@
 #!/bin/bash
 
+vanGosh_dir=$(dirname $BASH_SOURCE)
+
+source $vanGosh_dir/colors.sh
+source $vanGosh_dir/loggers.sh
+source $vanGosh_dir/painters.sh
+
 function escape () {
     echo "\e[$*m"
 }
@@ -9,13 +15,13 @@ function getColorNumber () {
     local colorName=$1
     local bg=${2:-0}
 
-    if [ "$colorName" = 0 ] ;then
+    if [ "$colorName" = 0 ] ; then
         return
     fi
 
     local colorNumber=${colorNum[$colorName]}
 
-    if [ "$bg" = 1 ] ;then
+    if [ "$bg" = 1 ] ; then
         echo "48;5;$colorNumber"
     else
         echo "38;5;$colorNumber"
@@ -49,7 +55,7 @@ function paint () {
     shift
 
     # "$*" contains all the remaining args (without the first, the color)
-    echo ${color}$*${NO_COLOR}
+    echo -e "${color}$*${NO_COLOR}"
 }
 
 INFO_COLOR=$(createColor steel-blue 0 1)
@@ -61,6 +67,4 @@ ERROR_COLOR=$(createColor red 0 1)
 FAIL_COLOR=$(createColor yellow red 1)
 SUCCESS_COLOR=$(createColor white green 1)
 
-source ./colors.sh
-source ./loggers.sh
-source ./painters.sh
+unset vanGosh_dir

@@ -1,21 +1,21 @@
 #!/bin/bash
 
 function paintRed () {
-    echo $(paint $_red $*)
+    echo $(paint $_red "$*")
 }
 
 function paintGreen () {
-    echo $(paint $_green $*)
+    echo $(paint $_green "$*")
 }
 
 function paintBlue () {
-    echo $(paint $_blue $*)
+    echo $(paint $_blue "$*")
 }
 
 function paintYellow () {
-    echo $(paint $_yellow $*)
+    echo $(paint $_yellow "$*")
 }
 
 function paintOrange () {
-    echo $(paint $_orange $*)
+    echo $(paint $_orange "$*")
 }
