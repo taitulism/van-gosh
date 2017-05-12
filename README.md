@@ -43,13 +43,13 @@ colorNum[my-color]=130    # 0-255
 
 Global Color Variables
 ----------------------
-_red
-_green
-_lblue  ( = steel-blue)
-_yellow
-_orange
-_gray
-_lgray ( = light gray)
+* _red
+* _green
+* _lblue  ( = steel-blue)
+* _yellow
+* _orange
+* _gray
+* _lgray ( = light gray)
 
 `echo $_red` -> '38;5;160'
 
@@ -87,15 +87,16 @@ logSuccess 'success'
 
 
 
-###paint  
+### paint  
 Returns your text colorized with your color
-Args: "<foreground>;<background>;<flag>"
+Args:  
+`createColor <foreground>;<background>;<flag>`
 ```
 myColor=$(createColor yellow red 1)
 
 echo $(paint $myColor hello world)
 ```
-***NOTE** color flags are passed as the LAST argument*
+***NOTE:** color flags are passed as the LAST argument*
 
 1 is the **bold** flag.  
 2 is for **dim**  
@@ -105,7 +106,7 @@ echo $(paint $myColor hello world)
 
 Other API
 ---------
-###createColor  
+### createColor  
 Creates a full color string: `"<flag>;<foreground>;<background>"`
 ```sh
 myColor=$(createColor yellow red 1)
@@ -120,12 +121,12 @@ echo $myColor
 1 makes the color **bold**.  
 Combine flags by escaping the semicolon with a backslash or just wrap with single quotes: `1\;4` or `'1;4'`
 
-* 1;38;5;**190**;48;5;**160**    
-190 is **red**, 160 is **yellow**
-
 * 1;**38;5**;190;**48;5**;160  
 38;5; precedes a foreground color  
 48;5; precedes a background color
+
+* 1;38;5;**190**;48;5;**160**    
+190 is **red**, 160 is **yellow**
 
 38;5;190 is yellow foreground  
 48;5;160 is red background
