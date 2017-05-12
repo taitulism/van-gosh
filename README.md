@@ -79,7 +79,7 @@ logInfo 'info'
 logOK 'ok'
 logWarn 'warn'
 logError 'error'
-logAttention 'attention'
+logHighlight 'attention'
 logFail 'fail'
 logSuccess 'success'
 ```
