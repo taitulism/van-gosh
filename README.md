@@ -33,7 +33,7 @@ light-gray = 253
 ```
 
 
-###colorNum  
+### colorNum  
 There's a `colorNum` assocsiative array (a dictionary) of colors.  
 You can add your own colors by doing: 
 ```sh
